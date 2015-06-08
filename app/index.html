@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		
+		<title>Color Convert</title>
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container-full" id="bgchange">
+			<div class="row">
+				<div class="col-md-8 boxconversion">
+					
+					<!-- Header -->
+					<div class="row">
+						<div class="col-md-12">
+							<h1>COLOR CONVERT</h1>
+							<p class="lead">RGB-HSV-CMY</p>
+							<hr></hr>
+						</div>
+					</div>
+					<!-- endHeader -->
+				
+					<!-- RGB -->
+					<div class="row">
+						<div class="col-md-1">RGB</div>
+						<div class="col-md-3"><input id="r" type="number" class="form-control input-lg" placeholder="0"></div>
+						<div class="col-md-3"><input id="g" type="number" class="form-control input-lg" placeholder="0"></div>
+						<div class="col-md-3"><input id="b" type="number" class="form-control input-lg" placeholder="0"></div>
+					</div>
+					<!-- endRGB -->
+				
+					<br/>
+				
+					<!-- HSV -->
+					<div class="row">
+						<div class="col-md-1">HSV</div>
+						<div class="col-md-3"><input id="h" type="number" class="form-control input-lg" placeholder="0"></div>
+						<div class="col-md-3"><input id="s" type="number" class="form-control input-lg" placeholder="0"></div>
+						<div class="col-md-3"><input id="v" type="number" class="form-control input-lg" placeholder="0"></div>
+					</div>
+					<!-- endHSV -->
+				
+					<br/>
+				
+					<!-- CMY -->
+					<div class="row">
+						<div class="col-md-1">CMY</div>
+						<div class="col-md-3"><input id="c" type="number" step="0.000001" class="form-control input-lg" placeholder="0"></div>
+						<div class="col-md-3"><input id="m" type="number" step="0.000001" class="form-control input-lg" placeholder="0"></div>
+						<div class="col-md-3"><input id="y" type="number" step="0.000001" class="form-control input-lg" placeholder="0"></div>
+					</div>
+					<!-- endCMY -->
+					
+					<br/>
+				
+					<!-- footer -->
+					<div class="row">
+						<div class="col-md-12 footer">
+							<hr></hr> by <a href="https://github.com/jbelgamazzi" target="_blank">@jbelgamazzi</a>
+						</div>
+					</div>
+					<!-- footer -->
+				</div>
+			</div>
+		</div> <!-- /container full -->
+
+		<!-- script references -->
+		<script src="js/bootstrap.min.js"></script>
+		
+		<script src="js/Convertion/Convertion.js"></script>
+		<script src="js/Convertion/color/color.js"></script>
+		<script src="js/Convertion/color/rgb.js"></script>
+		<script src="js/Convertion/color/hsv.js"></script>
+		<script src="js/Convertion/color/cmy.js"></script>
+
+
+		<script src="js/Color/color.js"></script>
+		<script src="js/Color/rgb.js"></script>
+		<script src="js/Color/hsv.js"></script>
+		<script src="js/Color/cmy.js"></script>
+
+		<script src="js/Validation/Validation.js"></script>
+		<script src="js/Validation/form/form.js"></script>
+		<script src="js/Validation/form/color/color.js"></script>
+		<script src="js/Validation/form/color/rgb.js"></script>
+		<script src="js/Validation/form/color/hsv.js"></script>
+		<script src="js/Validation/form/color/cmy.js"></script>
+	
+		<script>			
+			Object.observe(color.RGB.getcolor(), function(changes) {
+				changes.forEach(function(change) {					
+					var rgb = color.RGB.getcolor();
+					document.getElementById("bgchange").style.backgroundColor = 'rgb(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ')';
+				 });
+			});
+						
+			Validation.form.color.rgb.r();
+			Validation.form.color.rgb.g();
+			Validation.form.color.rgb.b();
+			
+			Validation.form.color.hsv.h();
+			Validation.form.color.hsv.s();
+			Validation.form.color.hsv.v();
+			
+			Validation.form.color.cmy.c();
+			Validation.form.color.cmy.m();
+			Validation.form.color.cmy.y();			
+		</script>
+		
+	</body>
+</html>
